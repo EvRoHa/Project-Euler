@@ -10,10 +10,8 @@ public class PE1 {
 	/**
 	 * @param [String[]
 	 *            args] [Catches any initial arguments and ignores them.]
-	 * @return [Returns the sum of the all integer multiples of either 3 or 5
-	 *         that are less than 1000.]
 	 */
-	public static int main(String[] args) {
+	public static void main(String[] args) {
 		int sum = 0;
 		for (int i = 3; i < 999; i += 3) {
 			sum += i;
@@ -24,7 +22,6 @@ public class PE1 {
 			}
 		}
 		System.out.println(sum);
-		return sum;
 	}
 
 }
