@@ -31,7 +31,7 @@ public class PE2 {
 												// than 4000000 we stop
 		System.out.println(sum);
 		long endTime = System.nanoTime();
-		System.out.println("Took "+(endTime - startTime) + " ns");
+		System.out.println("Took " + (endTime - startTime) / 1000000 + " ms");
 	}
 
 }

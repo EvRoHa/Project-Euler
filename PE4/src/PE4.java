@@ -1,6 +1,3 @@
-import static java.lang.Boolean.FALSE;
-import static java.lang.Boolean.TRUE;
-
 /*
 * A palindromic number reads the same both ways. The largest palindrome made
 * from the product of two 2-digit numbers is 9009 = 91 × 99. 
@@ -21,7 +18,7 @@ public class PE4 {
 			for (int j = i; j < 1000; j++) {
 				TestValue = i * j;
 				if (TestValue > LargestPalindrome) {
-					if (IsPalindrome(TestValue) == TRUE) {
+					if (IsPalindrome(TestValue) == true) {
 						LargestPalindrome = TestValue;
 					}
 				}
@@ -29,7 +26,7 @@ public class PE4 {
 		}
 		System.out.println(LargestPalindrome);
 		long endTime = System.nanoTime();
-		System.out.println("Took "+(endTime - startTime) + " ns"); 
+		System.out.println("Took " + (endTime - startTime) / 1000000 + " ms"); 
 		
 	}
 
@@ -40,8 +37,8 @@ public class PE4 {
 		 */
 		String reverse = new StringBuffer(Integer.toString(x)).reverse().toString();
 		if (x == Integer.valueOf(reverse)) {
-			return TRUE;
+			return true;
 		}
-		return FALSE;
+		return false;
 	}
 }

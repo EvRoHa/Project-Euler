@@ -24,7 +24,7 @@ public class PE1 {
 		}
 		System.out.println(sum);
 		long endTime = System.nanoTime();
-		System.out.println("Took "+(endTime - startTime) + " ns");
+		System.out.println("Took " + (endTime - startTime) / 1000000 + " ms");
 	}
 
 }
