@@ -14,6 +14,7 @@ public class PE2 {
 		 * @param [String[]
 		 *            args] [Catches any initial arguments and ignores them.]
 		 */
+		long startTime = System.nanoTime();
 		int first = 0; // the term n-2
 		int second = 1; // the term n-1
 		int current; // the nth term
@@ -29,6 +30,8 @@ public class PE2 {
 		} while (first + second <= 4000000); // if the next term will be larger
 												// than 4000000 we stop
 		System.out.println(sum);
+		long endTime = System.nanoTime();
+		System.out.println("Took "+(endTime - startTime) + " ns");
 	}
 
 }

@@ -12,8 +12,9 @@ public class PE1 {
 	 *            args] [Catches any initial arguments and ignores them.]
 	 */
 	public static void main(String[] args) {
+		long startTime = System.nanoTime();
 		int sum = 0;
-		for (int i = 3; i < 999; i += 3) {
+		for (int i = 3; i < 1000; i += 3) {
 			sum += i;
 		}
 		for (int i = 5; i < 1000; i += 5) {
@@ -22,6 +23,8 @@ public class PE1 {
 			}
 		}
 		System.out.println(sum);
+		long endTime = System.nanoTime();
+		System.out.println("Took "+(endTime - startTime) + " ns");
 	}
 
 }

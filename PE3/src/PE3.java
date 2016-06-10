@@ -5,7 +5,8 @@ import java.util.Arrays;
 public class PE3 {
 
 	public static void main(String[] args) {
-		long N = 600851475143L; // to store our number to be factored
+		long startTime = System.nanoTime();
+		long N = 600851475143L; // our number to be factored
 		long LargestPrimeFactor = 0; // to store our largest prime factor
 		boolean[] list = primesInRange((int) Math.ceil(Math.sqrt(N)));
 		// now test all identified primes as divisors of N.
@@ -15,7 +16,8 @@ public class PE3 {
 			}
 		}
 		System.out.println(LargestPrimeFactor);
-
+		long endTime = System.nanoTime();
+		System.out.println("Took "+(endTime - startTime) + " ns");
 	}
 
 	public static boolean[] primesInRange(int limit) {
