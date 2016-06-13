@@ -26,8 +26,8 @@ public class PE4 {
 		}
 		System.out.println(LargestPalindrome);
 		long endTime = System.nanoTime();
-		System.out.println("Took " + (endTime - startTime) / 1000000 + " ms"); 
-		
+		System.out.println("Took " + (endTime - startTime) / 1000000 + " ms");
+
 	}
 
 	private static boolean IsPalindrome(int x) {
