@@ -7,6 +7,12 @@
  * to create an expanding list of primes. We'll expand our test list using Bertrand's
  * postulate, which states if pn is the nth prime, then pn+1<2pn.
  * 
+ * The implementation of the sieve happens roughly n times (we're not memoizing results) so the
+ * overall time complexity should be on the order of O(n*n(logn)(loglogn)).
+ * 
+ * Memory usage is not optimal; right now arrays remain in memory with recursive calls.
+ * With a rewrite, it should grow roughly by n (dump old arrays before calling again).
+ * 
  * Note that we could use the weak result of pn < 2^n, but 2^10001 would occupy roughly 250 terabytes,
  * so that option is out.
  */
@@ -28,13 +34,8 @@ public class PE7 {
 	public static int nthPrime(int N, int nMinusOnePrime) {
 		int result = nMinusOnePrime;
 		int count = 0;
-		boolean[] list = sieveOfEratosthenes(2 * nMinusOnePrime); // build a
-																	// list of
-																	// natural
-																	// numbers
-																	// twice the
-																	// initial
-																	// prime
+		// build a list of natural numbers twice the initial prime
+		boolean[] list = sieveOfEratosthenes(2 * nMinusOnePrime);
 		// count the prime numbers in the list, make sure to stop once we either
 		// count enough or hit the end of the list
 		for (int i = 0; i < list.length && count != N; i++) {
@@ -46,6 +47,7 @@ public class PE7 {
 		// if we hit the end of the list before we counted enough primes, expand
 		// the list and count again
 		if (count != N) {
+			
 			return nthPrime(N, result);
 		}
 
@@ -53,6 +55,7 @@ public class PE7 {
 	}
 
 	public static boolean[] sieveOfEratosthenes(int limit) {
+		// In general, the time complexity a sieve is O(n(logn)(loglogn)).
 		boolean[] list = new boolean[limit];
 
 		Arrays.fill(list, true);
